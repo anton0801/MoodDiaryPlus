@@ -265,7 +265,7 @@
 				INFOPLIST_FILE = MoodDiary/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Mood Diary";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Allow to use features in this app";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your camera to capture your mood today. Your photos are not transferred anywhere and are stored locally on your phone.  ";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to use features in this app";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Allow to use features in this app";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -309,7 +309,7 @@
 				INFOPLIST_FILE = MoodDiary/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Mood Diary";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.productivity";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Allow to use features in this app";
+				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your camera to capture your mood today. Your photos are not transferred anywhere and are stored locally on your phone.  ";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to use features in this app";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Allow to use features in this app";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
