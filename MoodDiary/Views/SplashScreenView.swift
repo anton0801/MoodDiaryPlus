@@ -1,22 +1,35 @@
 import SwiftUI
+import Combine
 
 struct SplashScreenView: View {
-    @State private var isActive = false
+
     @State private var size = 0.5
     @State private var opacity = 0.5
     @State private var rotation = 0.0
     @State private var particlesOpacity = 0.0
     @State private var currentEmojiIndex = 0
     
+    @StateObject private var useCase = ApplicationUseCase()
+    @State private var eventStreams = Set<AnyCancellable>()
+    
     let emojis = ["😭", "😟", "😐", "🙂", "😍"]
     let gradientColors: [Color] = [.red, .orange, .yellow, .green, .blue, .purple, .pink]
     
+    private func setupEventStreams() {
+        NotificationCenter.default.publisher(for: Notification.Name("ConversionDataReceived"))
+            .compactMap { $0.userInfo?["conversionData"] as? [String: Any] }
+            .sink { useCase.handleAttribution($0) }
+            .store(in: &eventStreams)
+        
+        NotificationCenter.default.publisher(for: Notification.Name("deeplink_values"))
+            .compactMap { $0.userInfo?["deeplinksData"] as? [String: Any] }
+            .sink { useCase.handleDeeplink($0) }
+            .store(in: &eventStreams)
+    }
+    
     var body: some View {
-        if isActive {
-            ContentView()
-        } else {
+        NavigationView {
             ZStack {
-                // Animated gradient background
                 LinearGradient(
                     colors: [
                         Color(hex: "1a1a2e"),
@@ -28,7 +41,6 @@ struct SplashScreenView: View {
                 )
                 .ignoresSafeArea()
                 
-                // Orbiting particles
                 ForEach(0..<20, id: \.self) { index in
                     Circle()
                         .fill(
@@ -40,7 +52,7 @@ struct SplashScreenView: View {
                         )
                         .frame(width: CGFloat.random(in: 4...12))
                         .offset(x: cos(Double(index) * 18 + rotation) * 120,
-                               y: sin(Double(index) * 18 + rotation) * 120)
+                                y: sin(Double(index) * 18 + rotation) * 120)
                         .opacity(particlesOpacity)
                 }
                 
@@ -70,8 +82,22 @@ struct SplashScreenView: View {
                         .foregroundColor(.white.opacity(0.7))
                         .opacity(opacity)
                 }
+                
+                NavigationLink(destination: WebContentView()
+                    .navigationBarBackButtonHidden(true), isActive: $useCase.shouldNavigateToWeb) {
+                    EmptyView()
+                }
+                
+                NavigationLink(
+                    destination: RootView().navigationBarBackButtonHidden(true),
+                    isActive: $useCase.shouldNavigateToMain
+                ) {
+                    EmptyView()
+                }
             }
             .onAppear {
+                setupEventStreams()
+                
                 // Animate particles rotation
                 withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)) {
                     rotation = 360
@@ -98,14 +124,140 @@ struct SplashScreenView: View {
                     size = 1.0
                     opacity = 1.0
                 }
+            }
+        }
+        .navigationViewStyle(StackNavigationViewStyle())
+        .fullScreenCover(isPresented: $useCase.shouldShowPermissionPrompt) {
+            AlertPromptView(useCase: useCase)
+        }
+        .fullScreenCover(isPresented: $useCase.shouldShowOffline) {
+            UnavailableView()
+        }
+    }
+}
+
+#Preview {
+    SplashScreenView()
+}
+
+struct UnavailableView: View {
+    var body: some View {
+        GeometryReader { geo in
+            ZStack {
+                Image(geo.size.width > geo.size.height ? "internet_issue_background_second" : "internet_issue_background")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .ignoresSafeArea()
                 
-                // Navigate to main app
-                DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-                    withAnimation(.easeInOut(duration: 0.5)) {
-                        isActive = true
+                Image("internet_issue_alert")
+                    .resizable()
+                    .frame(width: 300, height: 270)
+            }
+        }
+        .ignoresSafeArea()
+    }
+}
+
+struct AlertPromptView: View {
+    @ObservedObject var useCase: ApplicationUseCase
+    @State private var pulse = false
+    
+    var body: some View {
+        GeometryReader { g in
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
+                
+                Image(g.size.width > g.size.height ? "notifications_bg_second" : "notifications_bg")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: g.size.width, height: g.size.height)
+                    .ignoresSafeArea()
+                    .opacity(0.9)
+                
+                if g.size.width < g.size.height {
+                    VStack(spacing: 12) {
+                        Spacer()
+                        
+                        Text("ALLOW NOTIFICATIONS ABOUT\nBONUSES AND PROMOS")
+                            .font(.custom("PassionOne-Bold", size: 24))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 12)
+                            .multilineTextAlignment(.center)
+                        
+                        Text("STAY TUNED WITH BEST OFFERS FROM\nOUR CASINO")
+                            .font(.custom("PassionOne-Bold", size: 16))
+                            .foregroundColor(.white.opacity(0.7))
+                            .padding(.horizontal, 12)
+                            .multilineTextAlignment(.center)
+                        
+                        actionControls
                     }
+                    .padding(.bottom, 24)
+                } else {
+                    HStack {
+                        Spacer()
+                        VStack(spacing: 12) {
+                            Spacer()
+                            
+                            Text("ALLOW NOTIFICATIONS ABOUT\nBONUSES AND PROMOS")
+                                .font(.custom("PassionOne-Bold", size: 24))
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 12)
+                                .multilineTextAlignment(.center)
+                            
+                            Text("STAY TUNED WITH BEST OFFERS FROM\nOUR CASINO")
+                                .font(.custom("PassionOne-Bold", size: 16))
+                                .foregroundColor(.white.opacity(0.7))
+                                .padding(.horizontal, 12)
+                                .multilineTextAlignment(.center)
+                        }
+                        Spacer()
+                        VStack {
+                            Spacer()
+                            actionControls
+                        }
+                        Spacer()
+                    }
+                    .padding(.bottom, 24)
                 }
             }
         }
+        .ignoresSafeArea()
+        .preferredColorScheme(.dark)
+        
+    }
+    
+    private var messageContent: some View {
+        VStack(spacing: 30) {
+            Text("Stay Balanced").font(.largeTitle.bold())
+            Text("Enable alerts to receive growth insights and balance reminders")
+                .font(.body)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 68)
+        }
+    }
+    
+    @State var animateButton = false
+    
+    private var actionControls: some View {
+        VStack(spacing: 30) {
+            Button {
+                useCase.grantPermission()
+            } label: {
+                Image("notifications_button")
+                    .resizable()
+                    .frame(width: 300, height: 55)
+            }
+            
+            Button { useCase.skipPermission() } label: {
+                Text("Skip")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+            }
+        }
+        .padding(.horizontal, 60)
     }
 }

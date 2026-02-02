@@ -32,3 +32,35 @@ final class MoodEntry {
         self.colorTheme = colorTheme
     }
 }
+
+struct FlowState: Equatable {
+    var current: FlowPhase
+    var endpoint: String?
+    var isReady: Bool
+    
+    enum FlowPhase: Equatable {
+        case initial
+        case preparing
+        case checking
+        case verified
+        case running(url: String)
+        case waiting
+        case disconnected
+    }
+    
+    static var empty: FlowState {
+        FlowState(current: .initial, endpoint: nil, isReady: false)
+    }
+}
+
+// UNIQUE: Attribution Model
+struct AttributionModel {
+    let data: [String: Any]
+    
+    var isEmpty: Bool { data.isEmpty }
+    var isOrganic: Bool { data["af_status"] as? String == "Organic" }
+    
+    static var empty: AttributionModel {
+        AttributionModel(data: [:])
+    }
+}

@@ -6,11 +6,54 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8F05C4132F30E3D4003A81B2 /* AppsFlyerLib in Frameworks */ = {isa = PBXBuildFile; productRef = 8F05C4122F30E3D4003A81B2 /* AppsFlyerLib */; };
+		8F05C4162F30E3F5003A81B2 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 8F05C4152F30E3F5003A81B2 /* FirebaseAuth */; };
+		8F05C4182F30E3F5003A81B2 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 8F05C4172F30E3F5003A81B2 /* FirebaseDatabase */; };
+		8F05C41A2F30E3F5003A81B2 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8F05C4192F30E3F5003A81B2 /* FirebaseMessaging */; };
+		8F05C42A2F310D1E003A81B2 /* ConfettiView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F05C4292F310D1E003A81B2 /* ConfettiView.swift */; };
+		8F7D7D9D2F31283A0006F969 /* MoodNotificationsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 8F7D7D962F31283A0006F969 /* MoodNotificationsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		8F7D7E002F3128530006F969 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 8F7D7DFF2F3128530006F969 /* FirebaseMessaging */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8F7D7D9B2F31283A0006F969 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8FF51F732F2A25BA005F4EE0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8F7D7D952F31283A0006F969;
+			remoteInfo = MoodNotificationsExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8F7D7DA22F31283A0006F969 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				8F7D7D9D2F31283A0006F969 /* MoodNotificationsExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		8F05C4292F310D1E003A81B2 /* ConfettiView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfettiView.swift; sourceTree = "<group>"; };
+		8F7D7D962F31283A0006F969 /* MoodNotificationsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = MoodNotificationsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF51F7B2F2A25BA005F4EE0 /* MoodDiary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoodDiary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8F7D7DA12F31283A0006F969 /* Exceptions for "MoodNotificationsExtension" folder in "MoodNotificationsExtension" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 8F7D7D952F31283A0006F969 /* MoodNotificationsExtension */;
+		};
 		8FF51FBE2F2A29DA005F4EE0 /* Exceptions for "MoodDiary" folder in "MoodDiary" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
@@ -21,6 +64,14 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		8F7D7D972F31283A0006F969 /* MoodNotificationsExtension */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8F7D7DA12F31283A0006F969 /* Exceptions for "MoodNotificationsExtension" folder in "MoodNotificationsExtension" target */,
+			);
+			path = MoodNotificationsExtension;
+			sourceTree = "<group>";
+		};
 		8FF51F7D2F2A25BA005F4EE0 /* MoodDiary */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
@@ -32,21 +83,43 @@
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		8F7D7D932F31283A0006F969 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F7D7E002F3128530006F969 /* FirebaseMessaging in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FF51F782F2A25BA005F4EE0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F05C41A2F30E3F5003A81B2 /* FirebaseMessaging in Frameworks */,
+				8F05C4182F30E3F5003A81B2 /* FirebaseDatabase in Frameworks */,
+				8F05C4132F30E3D4003A81B2 /* AppsFlyerLib in Frameworks */,
+				8F05C4162F30E3F5003A81B2 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8F7D7DFE2F3128530006F969 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8FF51F722F2A25BA005F4EE0 = {
 			isa = PBXGroup;
 			children = (
 				8FF51F7D2F2A25BA005F4EE0 /* MoodDiary */,
+				8F7D7D972F31283A0006F969 /* MoodNotificationsExtension */,
 				8FF51F7C2F2A25BA005F4EE0 /* Products */,
+				8F05C4292F310D1E003A81B2 /* ConfettiView.swift */,
+				8F7D7DFE2F3128530006F969 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				8FF51F7B2F2A25BA005F4EE0 /* MoodDiary.app */,
+				8F7D7D962F31283A0006F969 /* MoodNotificationsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +135,29 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		8F7D7D952F31283A0006F969 /* MoodNotificationsExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8F7D7D9E2F31283A0006F969 /* Build configuration list for PBXNativeTarget "MoodNotificationsExtension" */;
+			buildPhases = (
+				8F7D7D922F31283A0006F969 /* Sources */,
+				8F7D7D932F31283A0006F969 /* Frameworks */,
+				8F7D7D942F31283A0006F969 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				8F7D7D972F31283A0006F969 /* MoodNotificationsExtension */,
+			);
+			name = MoodNotificationsExtension;
+			packageProductDependencies = (
+				8F7D7DFF2F3128530006F969 /* FirebaseMessaging */,
+			);
+			productName = MoodNotificationsExtension;
+			productReference = 8F7D7D962F31283A0006F969 /* MoodNotificationsExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		8FF51F7A2F2A25BA005F4EE0 /* MoodDiary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FF51F872F2A25BB005F4EE0 /* Build configuration list for PBXNativeTarget "MoodDiary" */;
@@ -68,16 +165,22 @@
 				8FF51F772F2A25BA005F4EE0 /* Sources */,
 				8FF51F782F2A25BA005F4EE0 /* Frameworks */,
 				8FF51F792F2A25BA005F4EE0 /* Resources */,
+				8F7D7DA22F31283A0006F969 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				8F7D7D9C2F31283A0006F969 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				8FF51F7D2F2A25BA005F4EE0 /* MoodDiary */,
 			);
 			name = MoodDiary;
 			packageProductDependencies = (
+				8F05C4122F30E3D4003A81B2 /* AppsFlyerLib */,
+				8F05C4152F30E3F5003A81B2 /* FirebaseAuth */,
+				8F05C4172F30E3F5003A81B2 /* FirebaseDatabase */,
+				8F05C4192F30E3F5003A81B2 /* FirebaseMessaging */,
 			);
 			productName = MoodDiary;
 			productReference = 8FF51F7B2F2A25BA005F4EE0 /* MoodDiary.app */;
@@ -93,6 +196,9 @@
 				LastSwiftUpdateCheck = 1640;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
+					8F7D7D952F31283A0006F969 = {
+						CreatedOnToolsVersion = 16.4;
+					};
 					8FF51F7A2F2A25BA005F4EE0 = {
 						CreatedOnToolsVersion = 16.4;
 					};
@@ -107,17 +213,29 @@
 			);
 			mainGroup = 8FF51F722F2A25BA005F4EE0;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8F05C4112F30E3D4003A81B2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */,
+				8F05C4142F30E3F5003A81B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8FF51F7C2F2A25BA005F4EE0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				8FF51F7A2F2A25BA005F4EE0 /* MoodDiary */,
+				8F7D7D952F31283A0006F969 /* MoodNotificationsExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8F7D7D942F31283A0006F969 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8FF51F792F2A25BA005F4EE0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -128,16 +246,93 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		8FF51F772F2A25BA005F4EE0 /* Sources */ = {
+		8F7D7D922F31283A0006F969 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8FF51F772F2A25BA005F4EE0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8F05C42A2F310D1E003A81B2 /* ConfettiView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		8F7D7D9C2F31283A0006F969 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8F7D7D952F31283A0006F969 /* MoodNotificationsExtension */;
+			targetProxy = 8F7D7D9B2F31283A0006F969 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		8F7D7D9F2F31283A0006F969 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoodNotificationsExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MoodNotificationsExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diartsdamood.MoodDiary.MoodNotificationsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		8F7D7DA02F31283A0006F969 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MoodNotificationsExtension/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = MoodNotificationsExtension;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.diartsdamood.MoodDiary.MoodNotificationsExtension;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		8FF51F852F2A25BB005F4EE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -268,6 +463,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your camera to capture your mood today. Your photos are not transferred anywhere and are stored locally on your phone.  ";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to use features in this app";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Allow to use features in this app";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Mood Diary Plus may use limited device-related identifiers only to support internal analytics, detect technical issues, and improve app performance. This information is used strictly to maintain and enhance the app and is not used to track you across other apps or websites, and is not shared for advertising purposes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -282,7 +478,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.diartsdamood.MoodDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -312,6 +508,7 @@
 				INFOPLIST_KEY_NSCameraUsageDescription = "Allow access to your camera to capture your mood today. Your photos are not transferred anywhere and are stored locally on your phone.  ";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Allow to use features in this app";
 				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "Allow to use features in this app";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "Mood Diary Plus may use limited device-related identifiers only to support internal analytics, detect technical issues, and improve app performance. This information is used strictly to maintain and enhance the app and is not used to track you across other apps or websites, and is not shared for advertising purposes.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -326,7 +523,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 15.3;
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.diartsdamood.MoodDiary;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
@@ -343,6 +540,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		8F7D7D9E2F31283A0006F969 /* Build configuration list for PBXNativeTarget "MoodNotificationsExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8F7D7D9F2F31283A0006F969 /* Debug */,
+				8F7D7DA02F31283A0006F969 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		8FF51F762F2A25BA005F4EE0 /* Build configuration list for PBXProject "MoodDiary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -362,6 +568,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8F05C4112F30E3D4003A81B2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AppsFlyerSDK/AppsFlyerFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.17.8;
+			};
+		};
+		8F05C4142F30E3F5003A81B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8F05C4122F30E3D4003A81B2 /* AppsFlyerLib */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F05C4112F30E3D4003A81B2 /* XCRemoteSwiftPackageReference "AppsFlyerFramework" */;
+			productName = AppsFlyerLib;
+		};
+		8F05C4152F30E3F5003A81B2 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F05C4142F30E3F5003A81B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		8F05C4172F30E3F5003A81B2 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F05C4142F30E3F5003A81B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		8F05C4192F30E3F5003A81B2 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F05C4142F30E3F5003A81B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		8F7D7DFF2F3128530006F969 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8F05C4142F30E3F5003A81B2 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8FF51F732F2A25BA005F4EE0 /* Project object */;
 }

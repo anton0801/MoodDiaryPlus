@@ -85,17 +85,13 @@ struct HabitsView: View {
     
     private var addHabitButton: some View {
         Button(action: {
-            if habits.count >= 5 && !isPremium {
-                // Show premium upgrade prompt
-            } else {
-                viewModel.showAddHabit = true
-            }
+            viewModel.showAddHabit = true
         }) {
             HStack {
                 Image(systemName: "plus.circle.fill")
                     .font(.system(size: 24))
                 
-                Text(habits.count >= 5 && !isPremium ? "Upgrade to Premium" : "Add New Habit")
+                Text("Add New Habit")
                     .font(.system(size: 16, weight: .semibold, design: .rounded))
             }
             .foregroundColor(.white)
@@ -165,7 +161,7 @@ struct TodayHabitRow: View {
                     .fill(.ultraThinMaterial)
             )
         }
-        .buttonStyle(ScaleButtonStyle())
+        // .buttonStyle(ScaleButtonStyle())
     }
 }
 

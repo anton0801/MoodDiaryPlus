@@ -43,3 +43,39 @@ final class Habit {
         self.isActive = isActive
     }
 }
+
+struct PermissionModel {
+    var status: PermissionStatus
+    var lastAsked: Date?
+    
+    enum PermissionStatus {
+        case notDetermined
+        case granted
+        case denied
+    }
+    
+    var canAsk: Bool {
+        guard status == .notDetermined else { return false }
+        
+        if let last = lastAsked {
+            let days = Date().timeIntervalSince(last) / 86400
+            return days >= 3
+        }
+        return true
+    }
+    
+    static var initial: PermissionModel {
+        PermissionModel(status: .notDetermined, lastAsked: nil)
+    }
+}
+
+// UNIQUE: Launch Configuration
+struct LaunchConfig {
+    var isFirstLaunch: Bool
+    var savedEndpoint: String?
+    var operationMode: String?
+    
+    static var initial: LaunchConfig {
+        LaunchConfig(isFirstLaunch: true, savedEndpoint: nil, operationMode: nil)
+    }
+}
