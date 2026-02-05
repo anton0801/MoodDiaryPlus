@@ -93,9 +93,8 @@ final class ApplicationUseCase: ObservableObject {
         
         storage.savePermission(permission)
         shouldShowPermissionPrompt = false
+        self.shouldNavigateToWeb = true
     }
-    
-    // MARK: - Private Logic
     
     private func loadSavedState() {
         attribution = storage.loadAttribution()

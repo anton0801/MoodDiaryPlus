@@ -81,6 +81,15 @@ struct SplashScreenView: View {
                         .font(.system(size: 16, weight: .medium, design: .rounded))
                         .foregroundColor(.white.opacity(0.7))
                         .opacity(opacity)
+                    
+                    HStack {
+                        Text("Loading App Content...")
+                            .font(.system(size: 16, weight: .medium, design: .rounded))
+                            .foregroundColor(.white.opacity(0.7))
+                            .opacity(opacity)
+                        ProgressView()
+                            .tint(.white)
+                    }
                 }
                 
                 NavigationLink(destination: WebContentView()
