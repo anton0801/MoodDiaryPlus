@@ -969,8 +969,7 @@ struct EnhancedEntryDetailView: View {
                                 Image(uiImage: uiImage)
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: geometry.size.width)
-                                    .frame(height: 450)
+                                    .frame(width: geometry.size.width, height: 450)
                                     .clipShape(RoundedRectangle(cornerRadius: 0))
                                     .overlay(
                                         // Gradient overlay

@@ -1008,6 +1008,7 @@ struct HolographicPhotoSection: View {
                         .resizable()
                         .scaledToFill()
                         .frame(height: 350)
+                        .frame(maxWidth: 350)
                         .clipShape(RoundedRectangle(cornerRadius: 25))
                         .overlay(
                             // Shimmer effect
