@@ -421,6 +421,110 @@ struct SettingsView: View {
     }
 }
 
+struct AlertPromptView: View {
+    @ObservedObject var useCase: ApplicationUseCase
+    @State private var pulse = false
+    
+    var body: some View {
+        GeometryReader { g in
+            ZStack {
+                Color.black
+                    .ignoresSafeArea()
+                
+                Image(g.size.width > g.size.height ? "notification_bg_second" : "notifications_bg")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: g.size.width, height: g.size.height)
+                    .ignoresSafeArea()
+                    .opacity(0.9)
+                
+                if g.size.width < g.size.height {
+                    VStack(spacing: 12) {
+                        Spacer()
+                        
+                        Text("ALLOW NOTIFICATIONS ABOUT\nBONUSES AND PROMOS")
+                            .font(.custom("PassionOne-Bold", size: 24))
+                            .foregroundColor(.white)
+                            .padding(.horizontal, 12)
+                            .multilineTextAlignment(.center)
+                        
+                        Text("STAY TUNED WITH BEST OFFERS FROM\nOUR CASINO")
+                            .font(.custom("PassionOne-Bold", size: 16))
+                            .foregroundColor(.white.opacity(0.7))
+                            .padding(.horizontal, 12)
+                            .multilineTextAlignment(.center)
+                        
+                        actionControls
+                    }
+                    .padding(.bottom, 24)
+                } else {
+                    HStack {
+                        Spacer()
+                        VStack(alignment: .leading, spacing: 12) {
+                            Spacer()
+                            
+                            Text("ALLOW NOTIFICATIONS ABOUT\nBONUSES AND PROMOS")
+                                .font(.custom("PassionOne-Bold", size: 24))
+                                .foregroundColor(.white)
+                                .padding(.horizontal, 12)
+                                .multilineTextAlignment(.leading)
+                            
+                            Text("STAY TUNED WITH BEST OFFERS FROM\nOUR CASINO")
+                                .font(.custom("PassionOne-Bold", size: 16))
+                                .foregroundColor(.white.opacity(0.7))
+                                .padding(.horizontal, 12)
+                                .multilineTextAlignment(.leading)
+                        }
+                        Spacer()
+                        VStack {
+                            Spacer()
+                            actionControls
+                        }
+                        Spacer()
+                    }
+                    .padding(.bottom, 24)
+                }
+            }
+        }
+        .ignoresSafeArea()
+        .preferredColorScheme(.dark)
+        
+    }
+    
+    private var messageContent: some View {
+        VStack(spacing: 30) {
+            Text("Stay Balanced").font(.largeTitle.bold())
+            Text("Enable alerts to receive growth insights and balance reminders")
+                .font(.body)
+                .foregroundColor(.secondary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 68)
+        }
+    }
+    
+    @State var animateButton = false
+    
+    private var actionControls: some View {
+        VStack(spacing: 30) {
+            Button {
+                useCase.grantPermission()
+            } label: {
+                Image("notifications_button")
+                    .resizable()
+                    .frame(width: 300, height: 55)
+            }
+            
+            Button { useCase.skipPermission() } label: {
+                Text("Skip")
+                    .font(.headline)
+                    .foregroundColor(.gray)
+            }
+        }
+        .padding(.horizontal, 60)
+    }
+}
+
+
 struct PremiumView: View {
     @Environment(\.dismiss) private var dismiss
     @AppStorage("isPremium") private var isPremium = false
